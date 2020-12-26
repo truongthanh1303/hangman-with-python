@@ -17,8 +17,9 @@ def hangman():
     word_letters = set(word)
     alphabet = set(string.ascii_uppercase)
     used_words = set()
+    lives = len(word)
 
-    while len(word_letters) > 0:
+    while len(word_letters) > 0 and lives > 0:
         print('Used words ', ' '.join(used_words))
         words_list = [letter if letter in used_words else '-' for letter in word]
         #
@@ -42,7 +43,12 @@ def hangman():
         else:
             print('You put an invalid word. Try again')
 
-    print('Yeah, you guessed this word: ', word)
+        lives -= 1
+
+    if lives == 0:
+        print('You lost ^^')
+    else:
+        print('Yeah, you guessed this word: ', word)
 
 
 hangman()
