@@ -20,13 +20,13 @@ def hangman():
 
     while len(word_letters) > 0:
         print('Used words ', ' '.join(used_words))
-        words_list = []
-        # letter if letter in used_words else '-' for letter in word
-        for letter in word:
-            if letter in used_words:
-                words_list.append(letter)
-            else:
-                words_list.append('-')
+        words_list = [letter if letter in used_words else '-' for letter in word]
+        #
+        # for letter in word:
+        #     if letter in used_words:
+        #         words_list.append(letter)
+        #     else:
+        #         words_list.append('-')
 
         print('Current words: ', ' '.join(words_list))
 
